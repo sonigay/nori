@@ -138,7 +138,7 @@ async def LadderFunc(number, ladderlist):
 				description= '```' + result_ladderSTR + '```',
 				color=0xff00ff
 				)
-			await LadderFunc(num_cong, ladder, message.channel, embed=embed)
+			await LadderFunc.send_message(message.channel, num_cong, ladder, embed=embed)
 		else:
 			await client.send_message('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)
 	
