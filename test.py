@@ -124,7 +124,7 @@ async def on_message(message):
 		await client.send_message(message.channel, embed=embed)
 		
 		
-async def LadderFunc(number, ladderlist, channelVal):
+async def LadderFunc(number, ladderlist):
 	if number < len(ladderlist):
 		result_ladder = random.sample(ladderlist, number)
 		result_ladderSTR = ','.join(map(str, result_ladder))
@@ -145,7 +145,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 		num_cong = int(ladder[0])
 		del(ladder[0])		
 		
-		await LadderFunc(num_cong, ladder, client.get_channel(channel))
+		await LadderFunc(num_cong, ladder)
 		
 			
 			
