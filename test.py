@@ -145,7 +145,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 			ladder = message.content[len('!사다리')+1:].split(" ")
 			num_cong = int(ladder[0])
 			del(ladder[0])
-			await LadderFunc(num_cong, ladder, msg.channel)
+			await LadderFunc(num_cong, ladder, message.channel)
 		
 		
 		
