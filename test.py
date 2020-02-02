@@ -44,8 +44,8 @@ async def on_message(message):
 		result2 = wks.acell('I8').value
            
 		embed = discord.Embed(
-			title = ' 오늘 ' + SearchID + ' 생 나이! ',
-			description= '``` 오늘 ' + SearchID + ' 생 나이는 ' + result1 + ' 이며 만나이는' + result2 +' 입니다. ```',
+			title = ' 오늘기준 ' + SearchID + ' 나이! ',
+			description= '```' + SearchID + result1 + result2 + '```',
 			color=0xff00ff
 			)
 		await client.send_message(message.channel, embed=embed)
