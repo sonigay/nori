@@ -34,20 +34,21 @@ async def on_message(message):
 	global gc #정산
 	global creds	#정산
     
-#	if message.content.startswith('!재고'):
-#		SearchID = message.content[len('!재고')+1:]
-#		gc = gspread.authorize(creds)
-#		wks = gc.open('오전재고').worksheet('시트1')
-#		
-#		wks.update_acell('A1', SearchID)
-#		result = wks.acell('B1').value
- #           
-#		embed = discord.Embed(
-#			title = ' :calling:  ' + SearchID + ' 재고현황! ',
-#			description= '```' + SearchID + ' 오전까지 내역입니다. ' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```',
-#			color=0xff00ff
-#			)
-#		await client.send_message(message.channel, embed=embed)
+	if message.content.startswith('!나이'):
+		SearchID = message.content[len('!나이')+1:]
+		gc = gspread.authorize(creds)
+		wks = gc.open('오전재고').worksheet('만나이계산기')
+		
+		wks.update_acell('C8', SearchID)
+		result1 = wks.acell('G8').value
+		result2 = wks.acell('I8').value
+           
+		embed = discord.Embed(
+			title = ' 오늘 ' + SearchID + ' 생 나이! ',
+			description= '```' 오늘 ' + SearchID + ' 생 나이는 ' + result1 + ' 이며 만나이는' + result2 +' 입니다. '```',
+			color=0xff00ff
+			)
+		await client.send_message(message.channel, embed=embed)
  #           
 #	if message.content.startswith('!모델명'):
 #		SearchID = message.content[len('!모델명')+1:]
