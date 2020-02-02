@@ -45,7 +45,7 @@ async def on_message(message):
            
 		embed = discord.Embed(
 			title = ' 오늘 ' + SearchID + ' 생 나이! ',
-			description= '```' 오늘 ' + SearchID + ' 생 나이는 ' + result1 + ' 이며 만나이는' + result2 +' 입니다. '```',
+			description= '``` 오늘 ' + SearchID + ' 생 나이는 ' + result1 + ' 이며 만나이는' + result2 +' 입니다. ```',
 			color=0xff00ff
 			)
 		await client.send_message(message.channel, embed=embed)
