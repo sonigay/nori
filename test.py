@@ -87,36 +87,36 @@ async def on_message(message):
 		moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
 		moviechart2 = moviechart1.find_all('li')
 
-	for i in range(0, 20):
-		i1 = i1+1
-		stri1 = str(i1) # i1은 영화랭킹을 나타내는데 사용됩니다
-		print()
-		print(i)
-		print()
-		moviechartLi1 = moviechart2[i]  # ------------------------- 1등랭킹 영화---------------------------
-		moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'})  # 영화박스 나타내는 Div
-		moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
-		moviechartLi1MovieName = moviechartLi1MovieName1.text.strip()  # 영화 제목
-		print(moviechartLi1MovieName)
+		for i in range(0, 20):
+			i1 = i1+1
+			stri1 = str(i1) # i1은 영화랭킹을 나타내는데 사용됩니다
+			print()
+			print(i)
+			print()
+			moviechartLi1 = moviechart2[i]  # ------------------------- 1등랭킹 영화---------------------------
+			moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'})  # 영화박스 나타내는 Div
+			moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
+			moviechartLi1MovieName = moviechartLi1MovieName1.text.strip()  # 영화 제목
+			print(moviechartLi1MovieName)
 
-		moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
-		moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
-		moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  # 영화 평점
-		print(moviechartLi1Ratting)
+			moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
+			moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
+			moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  # 영화 평점
+			print(moviechartLi1Ratting)
 
-		moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
-		moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd')  # 개봉날짜, 예매율 두개포함한 dd임
-		moviechartLi1openDay3 = moviechartLi1openDay2[0]
-		moviechartLi1Yerating1 = moviechartLi1openDay2[1]
-		moviechartLi1openDay = moviechartLi1openDay3.text.strip()  # 개봉날짜
-		print(moviechartLi1openDay)
-		moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  # 예매율 ,랭킹변동
-		print(moviechartLi1Yerating)  # ------------------------- 1등랭킹 영화---------------------------
-		print()
-		embed.add_field(name='---------------랭킹'+stri1+'위---------------', value='\n영화제목 : '+moviechartLi1MovieName+'\n영화평점 : '+moviechartLi1Ratting+'점'+'\n개봉날짜 : '+moviechartLi1openDay+'\n예매율,랭킹변동 : '+moviechartLi1Yerating, inline=False) # 영화랭킹
+			moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
+			moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd')  # 개봉날짜, 예매율 두개포함한 dd임
+			moviechartLi1openDay3 = moviechartLi1openDay2[0]
+			moviechartLi1Yerating1 = moviechartLi1openDay2[1]
+			moviechartLi1openDay = moviechartLi1openDay3.text.strip()  # 개봉날짜
+			print(moviechartLi1openDay)
+			moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  # 예매율 ,랭킹변동
+			print(moviechartLi1Yerating)  # ------------------------- 1등랭킹 영화---------------------------
+			print()
+			embed.add_field(name='---------------랭킹'+stri1+'위---------------', value='\n영화제목 : '+moviechartLi1MovieName+'\n영화평점 : '+moviechartLi1Ratting+'점'+'\n개봉날짜 : '+moviechartLi1openDay+'\n예매율,랭킹변동 : '+moviechartLi1Yerating, inline=False) # 영화랭킹
 
 
-	await client.send_message(message.channel, embed=embed)
+		await client.send_message(message.channel, embed=embed)
 
 
 	if message.content.startswith('!주사위'):
