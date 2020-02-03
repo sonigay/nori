@@ -6,6 +6,7 @@ import datetime
 from urllib.request import urlopen, Request
 import urllib
 import urllib.request
+import bs4
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
