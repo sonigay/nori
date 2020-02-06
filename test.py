@@ -51,6 +51,29 @@ async def on_message(message):
 			color=0x5ABEFF
 			)
 		await client.send_message(message.channel, embed=embed)
+		
+		
+	if message.content.startswith('!유지기간'):
+		SearchID = message.content[len('!유지기간')+1:]
+		gc = gspread.authorize(creds)
+		wks = gc.open('오전재고').worksheet('유지기간')
+		wks.update_acell('a1', SearchID)
+		result = wks.acell('b1').value
+		
+		embed = discord.Embed(
+			title = ' 오늘기준 ' + SearchID + ' 개통자 남은 유지일수는 ',
+			description= '```' + SearchID + result + '```',
+			color=0x5ABEFF
+			)
+		await client.send_message(message.channel, embed=embed)
+		
+		
+		
+		
+		
+		
+		
+		
  #           
 #	if message.content.startswith('!모델명'):
 #		SearchID = message.content[len('!모델명')+1:]
