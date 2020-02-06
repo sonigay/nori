@@ -15,8 +15,6 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('jego-972d19158581.json
 client = gspread.authorize(creds)
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_iRCYeFwRzkzLxqf-3Pj0c6FeVuFYBM')
 
-sheet1 = doc.worksheet('시트1')
-sheet2 = doc.worksheet('시트2')
 
 client = discord.Client()
 
