@@ -44,8 +44,8 @@ async def on_message(message):
 		wks = gc.open('오전재고').worksheet('만나이계산기')
 		
 		wks.update_acell('C8', SearchID)
-		result1 = wks.acell('G8').value
-		result2 = wks.acell('I8').value
+		result1 = wks.acell('H8').value
+		result2 = wks.acell('J8').value
            
 		embed = discord.Embed(
 			title = ' 오늘기준 ' + SearchID + ' 나이! ',
