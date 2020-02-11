@@ -212,6 +212,9 @@ async def LadderFunc(number, ladderlist, channelVal):
 	else:
 		await channelVal.send('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)		
 
+@client.event
+async def on_message(message):
+		
 	if message.content.startswith('!사다리'):
 		ladder = []
 		ladder = message.content[len('!사다리')+1:].split(" ")
