@@ -198,10 +198,26 @@ async def on_message(message):
 		)
 		await client.send_message(message.channel, embed=embed)
 		
-		
-		
+#사다리함수			
+async def LadderFunc(number, ladderlist, channelVal):
+	if number < len(ladderlist):
+		result_ladder = random.sample(ladderlist, number)
+		result_ladderSTR = ','.join(map(str, result_ladder))
+		embed = discord.Embed(
+			title = "----- 당첨! -----",
+			description= '```' + result_ladderSTR + '```',
+			color=0xff00ff
+			)
+		await channelVal.send(embed=embed, tts=False)
+	else:
+		await channelVal.send('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)		
 
-		
+	if message.content.startswith('!사다리'):
+		ladder = []
+		ladder = message.content[len('!사다리')+1:].split(" ")
+		num_cong = int(ladder[0])
+		del(ladder[0])
+		await LadderFunc(num_cong, ladder, message.channel)
 		
 		
 		
