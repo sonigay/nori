@@ -217,9 +217,9 @@ async def on_message(message):
 				description='```' + result_ladderSTR + '```',
 				color=0xff00ff
 				)
-			await message.channel.send(embed=embed, tts=False)
+			await client.send_message(message.channel, embed=embed, tts=False)
 		else:
-			await message.channel.send('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)
+			await client.send_message(message.channel, '```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)
 
 
 
