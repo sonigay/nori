@@ -214,6 +214,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 
 @client.event
 async def on_message(message):
+	global ladder
 		
 	if message.content.startswith('!사다리'):
 		ladder = []
