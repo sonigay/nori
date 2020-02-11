@@ -208,10 +208,10 @@ async def on_message(message):
 		ladder = message.content[len('!사다리')+1:].split(" ")
 		num_cong = int(ladder[0])
 		del(ladder[0])
-		await LadderFunc(num_cong, ladder)
+		await LadderFunc(num_cong, ladder, message.channel)
 		
 #사다리함수
-async def LadderFunc(number, ladderlist):
+async def LadderFunc(number, ladderlist, channelVal):
 	
 	if number < len(ladderlist):
 		result_ladder = random.sample(ladderlist, number)
@@ -221,9 +221,9 @@ async def LadderFunc(number, ladderlist):
 			description= '```' + result_ladderSTR + '```',
 			color=0xff00ff
 			)
-		await client.send_message(message.channel, embed=embed, tts=False)
+		await channelVal.send(embed=embed, tts=False)
 	else:
-		await client.send_message(message.channel, '```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)		
+		await channelVal.send('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)		
 		
 		
 		
