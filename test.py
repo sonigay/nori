@@ -198,9 +198,21 @@ async def on_message(message):
 		)
 		await client.send_message(message.channel, embed=embed)
 		
-#사다리함수			
+
+@client.event
+async def on_message(message):
+	global ladder
+	
+	if message.content.startswith('!사다리'):
+		ladder = []
+		ladder = message.content[len('!사다리')+1:].split(" ")
+		num_cong = int(ladder[0])
+		del(ladder[0])
+		await LadderFunc(num_cong, ladder)
+		
+#사다리함수
 async def LadderFunc(number, ladderlist):
-	global message
+	
 	if number < len(ladderlist):
 		result_ladder = random.sample(ladderlist, number)
 		result_ladderSTR = ','.join(map(str, result_ladder))
@@ -212,19 +224,6 @@ async def LadderFunc(number, ladderlist):
 		await client.send_message(message.channel, embed=embed, tts=False)
 	else:
 		await client.send_message(message.channel, '```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)		
-
-@client.event
-async def on_message(message):
-	global ladder
-		
-	if message.content.startswith('!사다리'):
-		ladder = []
-		ladder = message.content[len('!사다리')+1:].split(" ")
-		num_cong = int(ladder[0])
-		del(ladder[0])
-		await LadderFunc(num_cong, ladder)
-		
-		
 		
 		
 		
