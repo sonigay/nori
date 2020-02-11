@@ -211,6 +211,7 @@ async def on_message(message):
 		await LadderFunc(num_cong, ladder, message.channel)
 		
 #사다리함수
+@client.event
 async def LadderFunc(number, ladderlist, channelVal):
 	
 	if number < len(ladderlist):
