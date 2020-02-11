@@ -213,9 +213,9 @@ async def LadderFunc(number, ladderlist, channelVal):
 			description= '```' + result_ladderSTR + '```',
 			color=0xff00ff
 			)
-		await channelVal.send(message.channel, embed=embed, tts=False)
+		await channelVal.send_message(message.channel, embed=embed, tts=False)
 	else:
-		await channelVal.send(message.channel, '```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)			
+		await channelVal.send_message(message.channel, '```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)			
 		
 		
 
