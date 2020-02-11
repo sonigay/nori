@@ -200,6 +200,7 @@ async def on_message(message):
 		
 #사다리함수			
 async def LadderFunc(number, ladderlist):
+	global message
 	if number < len(ladderlist):
 		result_ladder = random.sample(ladderlist, number)
 		result_ladderSTR = ','.join(map(str, result_ladder))
