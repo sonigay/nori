@@ -35,6 +35,7 @@ async def on_ready():
 async def on_message(message):
 	global gc #정산
 	global creds	#정산
+	global ladder
     
 	if message.content.startswith('!나이'):
 		SearchID = message.content[len('!나이')+1:]
@@ -199,11 +200,6 @@ async def on_message(message):
 		await client.send_message(message.channel, embed=embed)
 		
 		
-		
-		
-@client.event
-async def on_message(message):
-	global ladder
 	if message.content.startswith('!사다리'):
 		ladder = []
 		ladder = message.content[len('!사다리') + 1:].split(" ")
