@@ -64,7 +64,7 @@ async def on_message(message):
 		
 		embed = discord.Embed(
 			title = ' 오늘기준 ' + SearchID + ' 개통자 남은 유지일수는 ',
-			description= '```md -\n' + SearchID + result + '```',
+			description= '```md-\n' + SearchID + result + '```',
 			color=0x5ABEFF
 			)
 		await client.send_message(message.channel, embed=embed)
