@@ -49,7 +49,7 @@ async def on_message(message):
            
 		embed = discord.Embed(
 			title = ' 오늘기준 ' + SearchID + ' 나이! ',
-			description= '```diff\n' + SearchID + result1 + result2 + '```',
+			description= '**```css\n' + SearchID + result1 + result2 + '```**',
 			color=0x5ABEFF
 			)
 		await client.send_message(message.channel, embed=embed)
@@ -64,7 +64,7 @@ async def on_message(message):
 		
 		embed = discord.Embed(
 			title = ' 오늘기준 ' + SearchID + ' 개통자 남은 유지일수는 ',
-			description= '```diff\n' + SearchID + result + '```',
+			description= '**```css\n' + SearchID + result + '```**',
 			color=0x5ABEFF
 			)
 		await client.send_message(message.channel, embed=embed)
